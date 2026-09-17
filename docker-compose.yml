@@ -1,0 +1,19 @@
+# docker-compose.yml
+
+version: '3.8'
+services:
+  task-forge:
+    image: postgres:13.5
+    container_name: task-forge
+    restart: always
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: taskforge
+    ports:
+      - '5433:5432'
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:
